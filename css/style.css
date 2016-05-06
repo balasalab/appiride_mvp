@@ -381,7 +381,7 @@ border-right: 2px solid #3C1551;
 }
 .ind_post{
 width: 100%;
-background-image: url(http://localhost/appiride/images/point.png);
+background-image: url(../images/point.png);
 background-position: 1px 35px;
 background-repeat: no-repeat;
 background-size: initial;

@@ -4,7 +4,9 @@
 		<div class="col-md-6 col-md-offset-3 tal" style="margin-bottom:60px;">
 		<h2>Joiner's</h2>
 			<?php
-			$joiner = file_get_contents('http://localhost/appiride/api/appiride/joiner/format/json');
+			//echo base_url();
+			
+			$joiner = file_get_contents(base_url().'api/appiride/joiner/format/json');
 			$manage = json_decode($joiner);
 			foreach ($manage as $key){
 			
@@ -18,7 +20,7 @@
 					  <div class="panel-body">
 						<div class="col-md-3">
 						<?php 
-							$user = file_get_contents('http://localhost/appiride/api/appiride/users/id/'.$key->user_id.'/format/json');
+							$user = file_get_contents(base_url().'api/appiride/users/id/'.$key->user_id.'/format/json');
 							$user = json_decode($user);
 							foreach ($user as $ud){
 								echo '<p><i class="fa fa-user"></i> : '.$ud->fname.'</p>';
@@ -38,7 +40,7 @@
 					  </div>
 					  <div class="panel-footer">
 							<?php
-							$joicheck = file_get_contents('http://localhost/appiride/api/appiride/req_joiner_check/joiid/'.$key->id.'/userid/'.$this->session->userdata('logged_in')['userid'].'/format/json');
+							$joicheck = file_get_contents(base_url().'api/appiride/req_joiner_check/joiid/'.$key->id.'/userid/'.$this->session->userdata('logged_in')['userid'].'/format/json');
 							
 							if($joicheck == 1){
 								echo '<button type="button" data-id="" class="accept_sent"><i class=""></i>accept pending</button>';

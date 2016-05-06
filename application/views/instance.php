@@ -42,7 +42,7 @@
 				?>
 				<?php
 				function inst(){
-				$instance = file_get_contents('http://localhost/appiride/api/appiride/instance/format/json');
+				$instance =file_get_contents(base_url().'api/appiride/instance/format/json');
 				$manage = json_decode($instance);
 				foreach ($manage as $key){			
 					//echo '<div>'.$key->message.'</div>';
@@ -75,7 +75,7 @@ $("#appride-instance").submit(function(){
 });
 function instance_form_ajax( datas ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/add_instance_ride",
+	url:"<?php echo base_url();?>api/appiride/add_instance_ride",
 	type:"post",
 	data: datas,
 	success:function( data ){
@@ -95,7 +95,7 @@ $.ajax({
 
 function instance_post(){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/instance/format/json",
+	url:"<?php echo base_url();?>api/appiride/instance/format/json",
 	type:"get",
 	data: {},
 	success:function( data ){
@@ -111,7 +111,7 @@ instance_post();
 
 function instance_update( id ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/instance/id/"+id+"/format/json",
+	url:"<?php echo base_url();?>api/appiride/instance/id/"+id+"/format/json",
 	type:"get",
 	data: {},
 	success:function( data ){

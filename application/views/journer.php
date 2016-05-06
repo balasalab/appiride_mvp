@@ -4,7 +4,7 @@
 		<div class="col-md-6 col-md-offset-3 tal" style="margin-bottom:60px;">
 		<h2>Journer's</h2>
 			<?php
-			$journer = file_get_contents('http://localhost/appiride/api/appiride/journer/format/json');
+			$journer =file_get_contents(base_url().'api/appiride/journer/format/json');
 			$manage = json_decode($journer);
 			foreach ($manage as $key){
 			
@@ -18,7 +18,7 @@
 					  <div class="panel-body">
 						<div class="col-md-3">
 							<?php 
-								$user = file_get_contents('http://localhost/appiride/api/appiride/users/id/'.$key->user_id.'/format/json');
+								$user =file_get_contents(base_url().'api/appiride/users/id/'.$key->user_id.'/format/json');
 								$user = json_decode($user);
 								foreach ($user as $ud){
 									echo '<p><i class="fa fa-user"></i> : '.$ud->fname.'</p>';
@@ -40,7 +40,7 @@
 					  </div>
 					  <div class="panel-footer">
 					  <?php
-						$joucheck = file_get_contents('http://localhost/appiride/api/appiride/req_journer_check/jouid/'.$key->id.'/userid/'.$this->session->userdata('logged_in')['userid'].'/format/json');
+						$joucheck =file_get_contents(base_url().'api/appiride/req_journer_check/jouid/'.$key->id.'/userid/'.$this->session->userdata('logged_in')['userid'].'/format/json');
 						
 						if($joucheck == 1){
 							echo '<button type="button" data-id="'.$key->id.'" class="request_sent"><i class="fa"></i> request pending</button>';

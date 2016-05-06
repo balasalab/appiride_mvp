@@ -1,4 +1,5 @@
 /*signup*/
+var base_path = "http://localhost/appiride_mvp/";
 $("#appride-signup").submit(function(){
 	var form_data = $(this).serialize();
 	signup_ajax(form_data);
@@ -6,7 +7,7 @@ $("#appride-signup").submit(function(){
 });
 function signup_ajax( datas ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/add_user",
+	url:base_path+"api/appiride/add_user",
 	type:"post",
 	data: datas,
 	success:function( data ){
@@ -30,7 +31,7 @@ $("#appride-login").submit(function(){
 });
 function login_ajax( datas ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/login",
+	url:base_path+"api/appiride/login",
 	type:"post",
 	data: datas,
 	success:function( data ){
@@ -67,7 +68,7 @@ $("#appride-giver").submit(function(){
 });
 function giver_form_ajax( datas ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/add_giver_ride",
+	url:base_path+"api/appiride/add_giver_ride",
 	type:"post",
 	data: datas,
 	success:function( data ){
@@ -96,7 +97,7 @@ $("#appride-getter").submit(function(){
 });
 function getter_form_ajax( datas ){
 $.ajax({
-	url:"http://localhost/appiride/api/appiride/add_getter_ride",
+	url:base_path+"api/appiride/add_getter_ride",
 	type:"post",
 	data: datas,
 	success:function( data ){
@@ -136,7 +137,7 @@ $(".request_ride").click(function(){
 	var rr = $(this);
 	//var rd  = req_journer(jourid);
 	$.ajax({
-		url:"http://localhost/appiride/api/appiride/req_journer/format/json",
+		url:base_path+"api/appiride/req_journer/format/json",
 		type:"post",
 		data: {id : jourid},
 		success:function( data ){
@@ -152,7 +153,7 @@ $(".delete_jour_ride").click(function(){
 	var rr = $(this);
 	//var rd  = req_journer(jourid);
 	$.ajax({
-		url:"http://localhost/appiride/api/appiride/disable_journer/format/json",
+		url:base_path+"api/appiride/disable_journer/format/json",
 		type:"post",
 		data: {id : jourid},
 		success:function( data ){
@@ -176,7 +177,7 @@ $(".accept_ride").click(function(){
 	var rr = $(this);
 	//var rd  = req_journer(joiid);
 	$.ajax({
-		url:"http://localhost/appiride/api/appiride/req_joiner/format/json",
+		url:base_path+"api/appiride/req_joiner/format/json",
 		type:"post",
 		data: {id : joiid},
 		success:function( data ){

@@ -6,6 +6,7 @@
 	$un= '';
 	if($this->session->userdata('logged_in'))
    {
+	   
      $session_data = $this->session->userdata('logged_in');
      $un = $session_data['firstname'];
    }
@@ -69,7 +70,7 @@
 				<div class="sub_item journey-list dn">
 					
 					<?php
-					$journey = file_get_contents('http://localhost/appiride/api/appiride/journer/format/json');//http://localhost/appiride/api/appiride/journey_list/format/json
+					$journey =file_get_contents(base_url().'api/appiride/journer/format/json');//http://localhost/appiride/api/appiride/journey_list/format/json
 					$manage = json_decode($journey);
 					foreach ($manage as $key){
 						if($key->user_id == $this->session->userdata('logged_in')['userid']){
@@ -98,13 +99,13 @@
 								<div class="col-md-12" style="">
 									<div class="<?php echo $key->id; ?>_req dn" style="border-top:1px solid #3C1551;">
 										<?php
-										$getreq = file_get_contents('http://localhost/appiride/api/appiride/get_req_journer/jouid/'.$key->id.'/format/json');
+										$getreq =file_get_contents(base_url().'api/appiride/get_req_journer/jouid/'.$key->id.'/format/json');
 										$greq = json_decode($getreq);
 										$reqc = 0;
 										if($greq != 0){
 											
 											foreach ($greq as $gr){
-												$user = file_get_contents('http://localhost/appiride/api/appiride/users/id/'.$gr->join_user_id.'/format/json');
+												$user =file_get_contents(base_url().'api/appiride/users/id/'.$gr->join_user_id.'/format/json');
 												$user = json_decode($user);
 												foreach ($user as $ud){
 													echo '<p><i class="fa fa-user"></i> : '.$ud->fname.'</p>';
@@ -131,7 +132,7 @@
 				<div class="sub_item join-list dn">
 				
 					<?php
-					$journey = file_get_contents('http://localhost/appiride/api/appiride/joiner/format/json');//http://localhost/appiride/api/appiride/journey_list/format/json
+					$journey =file_get_contents(base_url().'api/appiride/joiner/format/json');//http://localhost/appiride/api/appiride/journey_list/format/json
 					$manage = json_decode($journey);
 					foreach ($manage as $key){
 						if($key->user_id == $this->session->userdata('logged_in')['userid']){
@@ -159,13 +160,13 @@
 								<div class="col-md-12" style="">
 									<div class="<?php echo $key->id; ?>_req dn" style="border-top:1px solid #3C1551;">
 										<?php
-										$getreq = file_get_contents('http://localhost/appiride/api/appiride/get_req_joiner/joiid/'.$key->id.'/format/json');
+										$getreq =file_get_contents(base_url().'api/appiride/get_req_joiner/joiid/'.$key->id.'/format/json');
 										$greq = json_decode($getreq);
 										$reqc = 0;
 										if($greq != 0){
 											
 											foreach ($greq as $gr){
-												$user = file_get_contents('http://localhost/appiride/api/appiride/users/id/'.$gr->jour_user_id.'/format/json');
+												$user =file_get_contents(base_url().'api/appiride/users/id/'.$gr->jour_user_id.'/format/json');
 												$user = json_decode($user);
 												foreach ($user as $ud){
 													echo '<p><i class="fa fa-user"></i> : '.$ud->fname.'</p>';

@@ -36,8 +36,8 @@ else
 		<div class="col-md-12 menu tal">
 			<div class="hori-menu">
 				<span><a href="<?php echo base_url();?>"><i class="fa fa-globe"></i> Home</a></span>
-				<!--<span><a href="<?php echo base_url();?>appi/journer"><i class="fa fa-car"></i> Journer</a></span>
-					<span><a href="<?php echo base_url();?>appi/joiner"><i class="fa fa-group"></i> Joiner</a></span>-->
+				<!--<span><a href="http://localhost/appiride/appi/journer"><i class="fa fa-car"></i> Journer</a></span>
+					<span><a href="http://localhost/appiride/appi/joiner"><i class="fa fa-group"></i> Joiner</a></span>-->
 				<span class="dropdown pn">
 				  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 					<i class="fa fa-car"></i> Journer
@@ -192,7 +192,7 @@ $(".signup_email").change(function(){
 	if(em){
 		//alert("sdf");
 		$.ajax({
-			url:"http://localhost/appiride/api/appiride/check_signup_mail/format/json",
+			url:"<?php echo base_url();?>api/appiride/check_signup_mail/format/json",
 			type:"post",
 			data: {email : em},
 			success:function( data ){
